@@ -165,6 +165,9 @@
 				$el.data('lastclick-timeout',timeout);
 			};
 			var check = function(event){
+				// Don't allow default actions when we're using lastclick
+                		event.preventDefault();
+                		
 				// Fetch
 				var Me = this;
 				clear.call(Me);
@@ -239,6 +242,10 @@
 					event.type = 'firstclick';
 					$.event.handle.apply(Me, [event])
 				}
+				// Don't allow default actions on the remaining clicks when we're using firstclick
+                		else {
+                    			event.preventDefault();
+                		}
 				// Handle Timeout for when All Clicks are Completed
 				var timeout = setTimeout(function(){
 					// Clear Timeout
