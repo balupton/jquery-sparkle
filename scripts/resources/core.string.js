@@ -198,13 +198,7 @@ String.prototype.queryStringToJSON = String.prototype.queryStringToJSON || funct
 		// Fix
 		key = decodeURIComponent(key);
 		value = decodeURIComponent(value);
-		try {
-		    // value can be converted
-		    value = eval(value);
-		} catch ( e ) {
-		    // value is a normal string
-		}
-
+		
 		// Set
 		// window.console.log({'key':key,'value':value}, split);
 		var keys = key.split('.');
